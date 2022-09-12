@@ -29,14 +29,14 @@ function ProjectNewForm() {
 
   const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
-  const statusOptions = [
-    "New",
-    "Unassigned",
-    "Development",
-    "Testing",
-    "Resolved",
-    "Archived",
-  ];
+  // const statusOptions = [
+  //   "New",
+  //   "Unassigned",
+  //   "Development",
+  //   "Testing",
+  //   "Resolved",
+  //   "Archived",
+  // ];
 
   const addProject = () => {
     axios

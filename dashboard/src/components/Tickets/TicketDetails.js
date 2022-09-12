@@ -110,7 +110,7 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-secondary" disabled>{getFriendlyDate(created_at)}</Button></p>
+                <p className='m-b-10'><Button variant="outline-secondary" disabled>{getFriendlyDate(deadline)}</Button></p>
               </div>
             </div>
             <div className='row d-flex align-items-center'>

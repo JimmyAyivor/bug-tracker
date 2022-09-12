@@ -9,9 +9,7 @@ const MembersTable = () => {
   const [users,] = useContext(UserContext);
 
   const members = [...users];
-  const priority = () => {
-    return "priority";
-  };
+  
 
   const columns = [
     {
@@ -84,9 +82,7 @@ const MembersTable = () => {
     ], // A numeric array is also available. the purpose of above example is custom the text
   };
 
-  const afterSearch = (newResult) => {
-    console.log(newResult);
-  };
+
 
   return (
     <>
