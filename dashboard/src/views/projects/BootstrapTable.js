@@ -1,14 +1,13 @@
 import React from "react";
 import { ProjectContext } from "../../contexts/ProjectContext";
 import { useContext } from "react";
-import { Row, Col, Card, Table } from "react-bootstrap";
+import { Row, Col, Card,} from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
-import { dateFormatter, actionsFormatter, priorityFormatter } from "../../utils/helpers";
+import { dateFormatter, actionsFormatter } from "../../utils/helpers";
 
 const ProjectsTable = () => {
-  const [projects, setProjects] = useContext(ProjectContext);
+  const [projects,] = useContext(ProjectContext);
 console.log(projects);
   const allProjects = [...projects];
   const columns = [

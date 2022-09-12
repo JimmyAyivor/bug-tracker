@@ -9,14 +9,14 @@ import {
   actionsFormatter,
   priorityFormatter,
 } from "../../utils/helpers";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
+// import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 
 const TicketTable = () => {
-  const [tickets, setTickets] = useContext(TicketContext);
+  const [tickets, ] = useContext(TicketContext);
 
   const products = [...tickets];
 
-  const { SearchBar } = Search;
+  // const { SearchBar } = Search;
 
   const columns = [
     {

@@ -1,12 +1,12 @@
 import React from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
-import { Row, Col, Card, Table } from "react-bootstrap";
+import { Row, Col, Card} from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 
 const MembersTable = () => {
-  const [users, setTickets] = useContext(UserContext);
+  const [users,] = useContext(UserContext);
 
   const members = [...users];
   const priority = () => {

@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
-import { Row, Col, Card, Tab, Tabs, Table } from "react-bootstrap";
+import { Row, Col, Card, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import { TicketContext } from "../../../contexts/TicketContext";
 import { ProjectContext } from "../../../contexts/ProjectContext";
 import avatar1 from "../../../assets/images/user/avatar-1.jpg";
-import avatar3 from "../../../assets/images/user/avatar-3.jpg";
 import { getDaysPast, getIconType, getFriendlyDate} from "../../../utils/helpers";
 const DashDefault = () => {
-  const [users, setUsers] = useContext(UserContext);
-  const [tickets, setTickets] = useContext(TicketContext);
-  const [projects, setProjects] = useContext(ProjectContext);
+  const [users, ] = useContext(UserContext);
+  const [tickets, ] = useContext(TicketContext);
+  const [projects,] = useContext(ProjectContext);
 
   const listItems = tickets.map(
     ({ id, title, description, status, priority, created_at }) => (
