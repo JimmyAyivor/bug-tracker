@@ -14,7 +14,7 @@ function UserNewForm() {
     status_id:"", 
     ticket_type_id:"", 
     project_id:"", 
-    created_at:"",
+    created_at:now,
   });
 
   
@@ -29,14 +29,14 @@ function UserNewForm() {
 
   const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
-  const statusOptions = [
-    "New",
-    "Unassigned",
-    "Development",
-    "Testing",
-    "Resolved",
-    "Archived",
-  ];
+  // const statusOptions = [
+  //   "New",
+  //   "Unassigned",
+  //   "Development",
+  //   "Testing",
+  //   "Resolved",
+  //   "Archived",
+  // ];
 
   const addTicket = () => {
     axios

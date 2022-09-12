@@ -4,7 +4,7 @@ import { Switch, Redirect, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import AdminLayout from './layouts/AdminLayout';
 
-import { BASE_URL } from './config/constant';
+// import { BASE_URL } from './config/constant';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={<Loader />}>

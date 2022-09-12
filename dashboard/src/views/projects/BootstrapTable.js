@@ -8,7 +8,6 @@ import { dateFormatter, actionsFormatter } from "../../utils/helpers";
 
 const ProjectsTable = () => {
   const [projects,] = useContext(ProjectContext);
-console.log(projects);
   const allProjects = [...projects];
   const columns = [
     {
@@ -88,9 +87,7 @@ console.log(projects);
     ], // A numeric array is also available. the purpose of above example is custom the text
   };
 
-  const afterSearch = (newResult) => {
-    console.log(newResult);
-  };
+ 
 
   return (
     <>

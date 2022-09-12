@@ -32,7 +32,7 @@ const TicketDetails = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [id]);
   
   const handleDelete = () => {
     axios
