@@ -2,8 +2,8 @@ const db = require("../db/dbConfig.js");
 
 const getAllProjects = async () => {
   try {
-    const allProjects = await db.any(`SELECT t.id, t.title, t.created_at,t.deadline, description, priority, status  from projects t INNER join priority ON priority.id = t.priority_id 
-    INNER join status ON status.id = t.status_id`);
+    const allProjects = await db.any(`SELECT p.id, p.title, p.created_at,p.deadline, description, priority, status  from projects p INNER join priority ON priority.id = p.priority_id 
+    INNER join status ON status.id = p.status_id`);
     return allProjects;
   } catch (err) {
     return err;
@@ -12,7 +12,8 @@ const getAllProjects = async () => {
 
 const getProject = async (id) => {
   try {
-    const project = await db.one("SELECT * FROM projects WHERE id=$1", id);
+    const project = await db.one(`SELECT p.id, p.title, p.created_at,p.deadline, description, priority, status  from projects p INNER join priority ON priority.id = p.priority_id 
+    INNER join status ON status.id = p.status_id WHERE p.id=$1`, id);
     return project;
   } catch (err) {
     return err;
@@ -45,12 +46,12 @@ const deleteProject = async (id) => {
 };
 
 const updateProject = async (id, project) => {
-  const { name, description, modified_on } = project;
+  const { title, description, deadline, priority_id, status_id} = project;
 
   try {
     const updatedProject = await db.one(
-      "UPDATE projects SET name = $1, description = $2, modified_on = $3 WHERE id = $4 RETURNING *",
-      [name, description, modified_on, id]
+      "UPDATE projects SET title= $1, description= $2, deadline= $3, priority_id= $4, status_id= $5 WHERE id = $6 RETURNING *",
+      [title, description, deadline, priority_id, status_id, id]
     );
     return updatedProject;
   } catch (err) {

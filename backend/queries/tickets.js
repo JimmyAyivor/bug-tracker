@@ -16,7 +16,14 @@ const getAllTickets = async () => {
 
 const getTicket = async (id) => {
   try {
-    const ticket = await db.one(`SELECT * FROM tickets WHERE id=$1`, id);
+    const ticket = await db.one(
+      `SELECT t.id, t.title, t.created_at, t.description, priority, status, ticket_type,users.first_name,project_id, projects.title project  from tickets t join priority ON priority.id = t.priority_id 
+    join status ON status.id = t.status_id
+    join ticket_type ON ticket_type.id = t.ticket_type_id
+    join users ON users.id = t.user_id
+    join projects ON projects.id = t.project_id WHERE t.id=$1`,
+      id
+    );
     return ticket;
   } catch (err) {
     return err;
