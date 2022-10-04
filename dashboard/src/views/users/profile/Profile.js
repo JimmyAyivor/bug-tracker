@@ -1,6 +1,6 @@
-import React from "react";
-import useAuth from "../../hooks/useAuth";
-
+import React, { useContext } from "react";
+import useAuth from "../../../hooks/useAuth";
+import { UserContext } from "../../../contexts/UserContext";
 import {
   MDBCol,
   MDBContainer,
@@ -19,9 +19,11 @@ import {
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
 
-export default function ProfilePage() {
+const Profile =()=>{
   const { user } = useAuth();
-
+  const currentUser = useContext(UserContext)
+console.log(user);
+// console.log(currentUser);
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className='py-5'>
@@ -66,7 +68,7 @@ export default function ProfilePage() {
                 <MDBListGroup flush className='rounded-3'>
                   <MDBListGroupItem className='d-flex justify-content-between align-items-center p-3'>
                     <MDBIcon fas icon='globe fa-lg text-warning' />
-                    <MDBCardText>https://mdbootstrap.com</MDBCardText>
+                    <MDBCardText>{currentUser[0][5].website}</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className='d-flex justify-content-between align-items-center p-3'>
                     <MDBIcon
@@ -295,3 +297,4 @@ export default function ProfilePage() {
     </section>
   );
 }
+export default Profile;

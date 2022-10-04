@@ -1,8 +1,14 @@
-import { Button } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function getFriendlyDate(date) {
-  return new Date(date).toLocaleDateString();
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  };
+
+  return new Date(date).toLocaleDateString("en-US", options);
 }
 
 export function percIncrease(a, b) {
@@ -36,40 +42,47 @@ export function getIconType(daysGoneBy) {
   return <i className='fa fa-circle text-c-green f-10 m-r-15' />;
 }
 
-export function actionsFormatter(cell, row ) {
-  if(row){
+export function actionsFormatter(cell, row) {
+  if (row.deadline) {
     return (
       <>
         <span className='table-remove'>
-          <Link to={`/projects/${row.id}`}>
-            <Button type='button' className='btn btn-primary'>
-              <i className='far fa-eye'></i>
-            </Button>
-          </Link>
-          <Link to={`/projects/${row.id}/edit`}>
-            <Button type='button' className='btn btn-success'>
-              <i className='fas fa-edit'></i>
-            </Button>
-          </Link>
+        <Link to={`/projects/${row.id}`}>
+          <Button variant="primary"className="no-p">
+            <i className='far fa-eye'></i>
+          </Button>
+        </Link>
+        <Link to={`/projects/${row.id}/edit`}>
+          <Button variant="success"className="no-p">
+            <i className='fas fa-edit'></i>
+          </Button>
+        </Link>
+        <Link to={`/projects/${row.id}/edit`}>
+          <Button variant="danger" className="no-p">
+            <i className='far fa-trash-alt'></i>
+          </Button>
+        </Link>
         </span>
       </>
     );
-
   }
-  
-  
-  
+
   return (
     <>
       <span className='table-remove'>
         <Link to={`/tickets/${row.id}`}>
-          <Button type='button' className='btn btn-primary'>
+          <Button variant="primary" className="no-p">
             <i className='far fa-eye'></i>
           </Button>
         </Link>
         <Link to={`/tickets/${row.id}/edit`}>
-          <Button type='button' className='btn btn-success'>
+          <Button variant="success" className="no-p">
             <i className='fas fa-edit'></i>
+          </Button>
+        </Link>
+        <Link to={`/tickets/${row.id}/edit`}>
+          <Button variant="danger" className="no-p">
+            <i className='far fa-trash-alt'></i>
           </Button>
         </Link>
       </span>
@@ -77,20 +90,49 @@ export function actionsFormatter(cell, row ) {
   );
 }
 
-export function priorityFormatter(cell, row) {
-  if (row === "priority_actions") {
-    return (
-      <h6>
-        <span className='label label-danger'> {cell}</span>
-      </h6>
-    );
+export function statusFormatter(cell, row) {
+  if (cell === "OPEN") {
+    return <Badge variant='primary'>{cell}</Badge>;
   }
+  if (cell === "DEVELOPMENT") {
+    return <Badge variant='info'>{cell}</Badge>;
+  }
+  if (cell === "TESTING") {
+    return <Badge variant='warning'>{cell}</Badge>;
+  }
+  if (cell === "RESOLVED") {
+    return <Badge variant='info'>{cell}</Badge>;
+  }
+  if (cell === "CLOSED") {
+    return <Badge variant='danger'>{cell}</Badge>;
+  }
+  if (cell === "ARCHIVED") {
+    return <Badge variant='secondary'>{cell}</Badge>;
+  }
+  return <Badge variant='success'>{cell}</Badge>;
+}
 
-  return <span>$ {cell} NTD</span>;
+export function priorityFormatter(cell, row) {
+  if (cell === "URGENT") {
+    return <Badge variant='danger'>{cell}</Badge>;
+  }
+  if (cell === "MEDIUM") {
+    return <Badge variant='warning'>{cell}</Badge>;
+  }
+  if (cell === "HIGH") {
+    return <Badge variant='info'>{cell}</Badge>;
+  }
+  return <Badge variant='secondary'>{cell}</Badge>;
 }
 
 export function dateFormatter(cell, row) {
   if (row.created_at) {
     return getFriendlyDate(cell);
+  }
+}
+export function avatarFormatter(cell, row) {
+  if (row.created_at) {
+
+   return (<div className="pro-head"><a href="#"><img src={cell} style={{ width:35 , marginRight:8 }}class="img-radius" alt="Avatar"/><span>{row.first_name} {row.last_name}</span></a></div>)
   }
 }

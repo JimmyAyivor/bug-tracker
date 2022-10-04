@@ -1,7 +1,7 @@
 import React from "react";
 import TicketEditForm from "../../components/Tickets/TicketEditForm";
 
-const Edit = () => {
+const TicketEdit = () => {
   return (
     <>
       <TicketEditForm />
@@ -9,4 +9,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default TicketEdit;

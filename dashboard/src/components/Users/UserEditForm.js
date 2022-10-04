@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Row, Col, Card, Form, Button } from "react-bootstrap";
 
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-function TicketEditForm() {
+function UserEditForm() {
   let { id } = useParams();
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
-  const [ticket, setTicket] = useState({
+  const [user, setUser] = useState({
     title: "",
     description: "",
     priority_id: "",
@@ -18,10 +18,10 @@ function TicketEditForm() {
     user_id: "",
     created_at: "",
     deadline: "",
-    ticket_type_id: "",
+    user_type_id: "",
   });
 
-  const priorityOptions = [ "Low", "Medium", "High","Urgent"];
+  const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
   const statusOptions = [
     "New",
@@ -33,33 +33,33 @@ function TicketEditForm() {
   ];
 
   const handleTextChange = (event) => {
-    setTicket({ ...ticket, [event.target.id]: event.target.value });
+    setUser({ ...user, [event.target.id]: event.target.value });
   };
 
   useEffect(() => {
     axios
-      .get(`${API}/tickets/${id}`)
-      .then((response) => setTicket(response.data))
+      .get(`${API}/users/${id}`)
+      .then((response) => setUser(response.data))
       .catch((error) => console.error(error));
   }, [id]);
 
-  const updateTicket = () => {
+  const updateUser = () => {
     axios
-      .put(`${API}/tickets/${id}`, ticket)
+      .put(`${API}/users/${id}`, user)
       .then((response) => {
-        setTicket(response.data);
-        navigate.push(`/tickets`);
+        setUser(response.data);
+        navigate.push(`/users`);
       })
       .catch((error) => console.error(error));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateTicket();
+    updateUser();
   };
   const handleCancel = (event) => {
     event.preventDefault();
-    navigate.push(`/tickets`);
+    navigate(`/users`);
   };
   return (
     <>
@@ -68,55 +68,67 @@ function TicketEditForm() {
           <Form onSubmit={handleSubmit}>
             <Card>
               <Card.Header>
-                <Card.Title as='h5'>Edit Tickets</Card.Title>
+                <Card.Title as='h5'>Edit User</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Row>
                   <Col md={6}>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Title</Form.Label>
                       <Form.Control
                         type='text'
                         placeholder='Title'
                         id='title'
-                        value={ticket.title}
+                        value={user.title}
                         size='50'
                         onChange={handleTextChange}
                         required
                       />
                     </Form.Group>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Description</Form.Label>
                       <Form.Control
                         as='textarea'
                         rows='3'
                         id='description'
-                        value={ticket.description}
+                        value={user.description}
                         size='50'
                         onChange={handleTextChange}
                         required
                       />
                     </Form.Group>
-                    <Form.Group controlId='ticket_priority'>
-                      <Form.Label>Ticket Priority</Form.Label>
-                      <Form.Control as='select' value={ticket.priority_id} onChange={handleTextChange}>
-                        {priorityOptions.map((t,i) => {
-                          return <option value={i} >{t}</option>;
+                    <Form.Group controlId='user_priority'>
+                      <Form.Label>user Priority</Form.Label>
+                      <Form.Control
+                        as='select'
+                        value={user.priority_id}
+                        onChange={handleTextChange}
+                      >
+                        {priorityOptions.map((t, i) => {
+                          return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
-                    <Form.Group controlId='ticket_type'>
-                      <Form.Label>Ticket Type</Form.Label>
-                      <Form.Control as='select' value={ticket.ticket_type_id} onChange={handleTextChange}>
-                        {typeOptions.map((p,i) => {
-                          return <option value={i} >{p}</option>;
+                    <Form.Group controlId='user_type'>
+                      <Form.Label>user Type</Form.Label>
+                      <Form.Control
+                        as='select'
+                        value={user.user_type_id}
+                        onChange={handleTextChange}
+                      >
+                        {typeOptions.map((p, i) => {
+                          return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
-                    <Form.Group controlId='ticket_status'>
-                      <Form.Label>Ticket Status</Form.Label>
-                      <Form.Control as='select' value={ticket.status_id} onChange={handleTextChange}>
-                        {statusOptions.map((s,i) => {
+                    <Form.Group controlId='user_status'>
+                      <Form.Label>user Status</Form.Label>
+                      <Form.Control
+                        as='select'
+                        value={user.status_id}
+                        onChange={handleTextChange}
+                      >
+                        {statusOptions.map((s, i) => {
                           return <option value={i}>{s}</option>;
                         })}
                       </Form.Control>
@@ -139,4 +151,4 @@ function TicketEditForm() {
   );
 }
 
-export default TicketEditForm;
+export default UserEditForm;

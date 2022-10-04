@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectNewForm from "../../components/Projects/ProjectNewForm";
 
-const New = () => {
+const ProjectNew = () => {
   return (
     <>
       <ProjectNewForm />
@@ -9,4 +9,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default ProjectNew;

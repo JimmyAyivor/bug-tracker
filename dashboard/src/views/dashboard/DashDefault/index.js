@@ -1,19 +1,30 @@
 import React, { useContext } from "react";
-import { Row, Col, Card, Table } from "react-bootstrap";
+import { Row, Col, Card, Table, Tabs, Tab } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import { TicketContext } from "../../../contexts/TicketContext";
 import { ProjectContext } from "../../../contexts/ProjectContext";
 import avatar1 from "../../../assets/images/user/avatar-1.jpg";
-import { getDaysPast, getIconType, getFriendlyDate} from "../../../utils/helpers";
-const DashDefault = () => {
-  const [users, ] = useContext(UserContext);
-  const [tickets, ] = useContext(TicketContext);
-  const [projects,] = useContext(ProjectContext);
+import {
+  getDaysPast,
+  getIconType,
+  getFriendlyDate,
+} from "../../../utils/helpers";
+import PieBasicChart from "../../charts/nvd3-chart/chart/PieBasicChart";
+import LineChart from "../../charts/nvd3-chart/chart/LineChart";
+import BarDiscreteChart from "../../charts/nvd3-chart/chart/BarDiscreteChart";
+import ModuleNotification from '../../../components/Widgets/Statistic/Notification';
+import GoogleMaps from "../../maps/GoogleMaps";
 
-  const listItems = tickets.map(
-    ({ id, title, description, status, priority, created_at }) => (
-      <tr className='unread'>
+const DashDefault = () => {
+  const [users] = useContext(UserContext);
+  const [tickets] = useContext(TicketContext);
+  const [projects] = useContext(ProjectContext);
+  // console.log(tickets);
+  const listItems = tickets
+    .slice(0, 5)
+    .map(({ id, title, description, created_at }) => (
+      <tr className='unread' key={id}>
         <td>
           <img
             className='rounded-circle'
@@ -56,11 +67,18 @@ const DashDefault = () => {
           </Link>
         </td>
       </tr>
-    )
-  );
+    ));
 
   return (
     <React.Fragment>
+       <Row>
+        <Col sm={12}>
+          <ModuleNotification
+            message="Please Note: This app is still in development, and some functionalities may not be fully implemented or may be restricted"
+            link="https://www.npmjs.com/package/react-google-maps"
+          />
+        </Col>
+      </Row>
       <Row>
         <Col md={6} xl={4}>
           <Card>
@@ -150,6 +168,22 @@ const DashDefault = () => {
           </Card>
         </Col>
         <Col md={6} xl={8}>
+          <Card>
+            <Card.Body>
+              {/* <LineChart /> */}
+              <BarDiscreteChart />
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6} xl={4}>
+          <Card>
+            <Card.Body>
+              <PieBasicChart />
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={6} xl={8}>
           <Card className='Recent-Users'>
             <Card.Header>
               <Card.Title as='h5'>Recent Tickets</Card.Title>
@@ -208,7 +242,9 @@ const DashDefault = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={6} xl={4}>
+
+        {/* <MarkerClusterer/> */}
+        {/* <Col md={6} xl={4}>
           <Card className='card-social'>
             <Card.Body className='border-bottom'>
               <div className='row align-items-center justify-content-center'>
@@ -360,127 +396,150 @@ const DashDefault = () => {
               </div>
             </Card.Body>
           </Card>
-        </Col>
-        {/* <Col md={6} xl={4}>
+        </Col> */}
+
+       
+        <Col md={6} xl={4}>
           <Card>
             <Card.Header>
-              <Card.Title as="h5">Rating</Card.Title>
+              <Card.Title as='h5'>Rating</Card.Title>
             </Card.Header>
             <Card.Body>
-              <div className="row align-items-center justify-content-center m-b-20">
-                <div className="col-6">
-                  <h2 className="f-w-300 d-flex align-items-center float-left m-0">
-                    4.7 <i className="fa fa-star f-10 m-l-10 text-c-yellow" />
+              <div className='row align-items-center justify-content-center m-b-20'>
+                <div className='col-6'>
+                  <h2 className='f-w-300 d-flex align-items-center float-left m-0'>
+                    4.7 <i className='fa fa-star f-10 m-l-10 text-c-yellow' />
                   </h2>
                 </div>
-                <div className="col-6">
-                  <h6 className="d-flex  align-items-center float-right m-0">
-                    0.4 <i className="fa fa-caret-up text-c-green f-22 m-l-10" />
+                <div className='col-6'>
+                  <h6 className='d-flex  align-items-center float-right m-0'>
+                    0.4{" "}
+                    <i className='fa fa-caret-up text-c-green f-22 m-l-10' />
                   </h6>
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-xl-12">
-                  <h6 className="align-items-center float-left">
-                    <i className="fa fa-star f-10 m-r-10 text-c-yellow" />5
+              <div className='row'>
+                <div className='col-xl-12'>
+                  <h6 className='align-items-center float-left'>
+                    <i className='fa fa-star f-10 m-r-10 text-c-yellow' />5
                   </h6>
-                  <h6 className="align-items-center float-right">384</h6>
-                  <div className="progress m-t-30 m-b-20" style={{ height: '6px' }}>
+                  <h6 className='align-items-center float-right'>384</h6>
+                  <div
+                    className='progress m-t-30 m-b-20'
+                    style={{ height: "6px" }}
+                  >
                     <div
-                      className="progress-bar progress-c-theme"
-                      role="progressbar"
-                      style={{ width: '70%' }}
-                      aria-valuenow="70"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
+                      className='progress-bar progress-c-theme'
+                      role='progressbar'
+                      style={{ width: "70%" }}
+                      aria-valuenow='70'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
                     />
                   </div>
                 </div>
 
-                <div className="col-xl-12">
-                  <h6 className="align-items-center float-left">
-                    <i className="fa fa-star f-10 m-r-10 text-c-yellow" />4
+                <div className='col-xl-12'>
+                  <h6 className='align-items-center float-left'>
+                    <i className='fa fa-star f-10 m-r-10 text-c-yellow' />4
                   </h6>
-                  <h6 className="align-items-center float-right">145</h6>
-                  <div className="progress m-t-30  m-b-20" style={{ height: '6px' }}>
+                  <h6 className='align-items-center float-right'>145</h6>
+                  <div
+                    className='progress m-t-30  m-b-20'
+                    style={{ height: "6px" }}
+                  >
                     <div
-                      className="progress-bar progress-c-theme"
-                      role="progressbar"
-                      style={{ width: '35%' }}
-                      aria-valuenow="35"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
+                      className='progress-bar progress-c-theme'
+                      role='progressbar'
+                      style={{ width: "35%" }}
+                      aria-valuenow='35'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
                     />
                   </div>
                 </div>
 
-                <div className="col-xl-12">
-                  <h6 className="align-items-center float-left">
-                    <i className="fa fa-star f-10 m-r-10 text-c-yellow" />3
+                <div className='col-xl-12'>
+                  <h6 className='align-items-center float-left'>
+                    <i className='fa fa-star f-10 m-r-10 text-c-yellow' />3
                   </h6>
-                  <h6 className="align-items-center float-right">24</h6>
-                  <div className="progress m-t-30  m-b-20" style={{ height: '6px' }}>
+                  <h6 className='align-items-center float-right'>24</h6>
+                  <div
+                    className='progress m-t-30  m-b-20'
+                    style={{ height: "6px" }}
+                  >
                     <div
-                      className="progress-bar progress-c-theme"
-                      role="progressbar"
-                      style={{ width: '25%' }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
+                      className='progress-bar progress-c-theme'
+                      role='progressbar'
+                      style={{ width: "25%" }}
+                      aria-valuenow='25'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
                     />
                   </div>
                 </div>
 
-                <div className="col-xl-12">
-                  <h6 className="align-items-center float-left">
-                    <i className="fa fa-star f-10 m-r-10 text-c-yellow" />2
+                <div className='col-xl-12'>
+                  <h6 className='align-items-center float-left'>
+                    <i className='fa fa-star f-10 m-r-10 text-c-yellow' />2
                   </h6>
-                  <h6 className="align-items-center float-right">1</h6>
-                  <div className="progress m-t-30  m-b-20" style={{ height: '6px' }}>
+                  <h6 className='align-items-center float-right'>1</h6>
+                  <div
+                    className='progress m-t-30  m-b-20'
+                    style={{ height: "6px" }}
+                  >
                     <div
-                      className="progress-bar progress-c-theme"
-                      role="progressbar"
-                      style={{ width: '10%' }}
-                      aria-valuenow="10"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
+                      className='progress-bar progress-c-theme'
+                      role='progressbar'
+                      style={{ width: "10%" }}
+                      aria-valuenow='10'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
                     />
                   </div>
                 </div>
-                <div className="col-xl-12">
-                  <h6 className="align-items-center float-left">
-                    <i className="fa fa-star f-10 m-r-10 text-c-yellow" />1
+                <div className='col-xl-12'>
+                  <h6 className='align-items-center float-left'>
+                    <i className='fa fa-star f-10 m-r-10 text-c-yellow' />1
                   </h6>
-                  <h6 className="align-items-center float-right">0</h6>
-                  <div className="progress m-t-30  m-b-5" style={{ height: '6px' }}>
+                  <h6 className='align-items-center float-right'>0</h6>
+                  <div
+                    className='progress m-t-30  m-b-5'
+                    style={{ height: "6px" }}
+                  >
                     <div
-                      className="progress-bar"
-                      role="progressbar"
-                      style={{ width: '0%' }}
-                      aria-valuenow="0"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
+                      className='progress-bar'
+                      role='progressbar'
+                      style={{ width: "0%" }}
+                      aria-valuenow='0'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
                     />
                   </div>
                 </div>
               </div>
             </Card.Body>
           </Card>
-        </Col> */}
-        {/* <Col md={6} xl={8}>
-        <Tabs defaultActiveKey="today" id="uncontrolled-tab-example">
-            <Tab eventKey="today" title="Today">
-              {tabContent}
+        </Col>
+        <Col md={6} xl={8}>
+          <Tabs defaultActiveKey='today' id='uncontrolled-tab-example'>
+            <Tab eventKey='today' title='Today'>
+              {/* {tabContent} */}
             </Tab>
-            <Tab eventKey="week" title="This Week">
-              {tabContent}
+            <Tab eventKey='week' title='This Week'>
+              {/* {tabContent} */}
             </Tab>
-            <Tab eventKey="all" title="All">
-              {tabContent}
+            <Tab eventKey='all' title='All'>
+              {/* {tabContent} */}
             </Tab>
           </Tabs>
-        </Col> */}
+        </Col>
+        <Col md={6} xl={12}>
+          <Card>
+            <Card.Body> <GoogleMaps/></Card.Body>
+          </Card>
+        </Col>
       </Row>
     </React.Fragment>
   );

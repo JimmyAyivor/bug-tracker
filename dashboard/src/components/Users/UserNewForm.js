@@ -1,24 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 const now = new Date();
 function UserNewForm() {
   const [ticket, setTicket] = useState({
-    title: "", 
+    title: "",
     description: "",
-    priority_id:"", 
-    user_id:"", 
-    status_id:"", 
-    ticket_type_id:"", 
-    project_id:"", 
-    created_at:now,
+    priority_id: "",
+    user_id: "",
+    status_id: "",
+    ticket_type_id: "",
+    project_id: "",
+    created_at: now,
   });
 
-  
-  const navigate = useHistory();
+  const navigate = useNavigate();
   const projectOptions = [
     "Project 1",
     "Project 2",
@@ -96,19 +95,19 @@ function UserNewForm() {
                     </Form.Group>
                     <Form.Group controlId='project_id'>
                       <Form.Label>Select Project</Form.Label>
-                      <Form.Control as='select'onChange={handleTextChange}>
+                      <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>{" "}
-                        {projectOptions.map((t,i) => {
-                          return <option value={i} >{t}</option>;
+                        {projectOptions.map((t, i) => {
+                          return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId='ticket_priority'>
                       <Form.Label>Ticket Priority</Form.Label>
-                      <Form.Control as='select'onChange={handleTextChange}>
+                      <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {priorityOptions.map((t,i) => {
-                          return <option value={i}  >{t}</option>;
+                        {priorityOptions.map((t, i) => {
+                          return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
@@ -116,8 +115,8 @@ function UserNewForm() {
                       <Form.Label>Ticket Type</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {typeOptions.map((p,i) => {
-                          return <option value={i} >{p}</option>;
+                        {typeOptions.map((p, i) => {
+                          return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>

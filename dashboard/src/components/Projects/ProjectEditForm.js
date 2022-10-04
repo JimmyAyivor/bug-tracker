@@ -1,65 +1,59 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Row, Col, Card, Form, Button } from "react-bootstrap";
 
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-function TicketEditForm() {
+function ProjectEditForm() {
   let { id } = useParams();
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
-  const [ticket, setTicket] = useState({
+  const [project, setProject] = useState({
     title: "",
     description: "",
     priority_id: "",
     status_id: "",
-    user_id: "",
     created_at: "",
     deadline: "",
-    ticket_type_id: "",
   });
+  const [endDate, setStartDate] = useState(new Date());
 
-  const priorityOptions = [ "Low", "Medium", "High","Urgent"];
+  const priorityOptions = ["1", "2", "3", "4"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
-  const statusOptions = [
-    "New",
-    "Unassigned",
-    "Development",
-    "Testing",
-    "Resolved",
-    "Archived",
-  ];
+  const statusOptions = ["1", "2", "3", "4", "5", "6"];
 
   const handleTextChange = (event) => {
-    setTicket({ ...ticket, [event.target.id]: event.target.value });
+    setProject({ ...project, [event.target.id]: event.target.value });
   };
-
+  console.log(project);
   useEffect(() => {
     axios
-      .get(`${API}/tickets/${id}`)
-      .then((response) => setTicket(response.data))
+      .get(`${API}/projects/${id}`)
+      .then((response) => setProject(response.data))
       .catch((error) => console.error(error));
   }, [id]);
 
-  const updateTicket = () => {
+  const updateProject = () => {
     axios
-      .put(`${API}/tickets/${id}`, ticket)
+      .put(`${API}/projects/${id}`, project)
       .then((response) => {
-        setTicket(response.data);
-        navigate.push(`/tickets`);
+        setProject(response.data);
+        navigate(`/projects`);
       })
       .catch((error) => console.error(error));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateTicket();
+    updateProject();
   };
   const handleCancel = (event) => {
     event.preventDefault();
-    navigate.push(`/tickets`);
+    navigate(`/projects`);
   };
   return (
     <>
@@ -68,56 +62,65 @@ function TicketEditForm() {
           <Form onSubmit={handleSubmit}>
             <Card>
               <Card.Header>
-                <Card.Title as='h5'>Edit Tickets</Card.Title>
+                <Card.Title as='h5'>Edit projects</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Row>
                   <Col md={6}>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Title</Form.Label>
                       <Form.Control
                         type='text'
                         placeholder='Title'
                         id='title'
-                        value={ticket.title}
+                        value={project.title}
                         size='50'
                         onChange={handleTextChange}
                         required
                       />
                     </Form.Group>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Description</Form.Label>
                       <Form.Control
                         as='textarea'
                         rows='3'
                         id='description'
-                        value={ticket.description}
+                        value={project.description}
                         size='50'
                         onChange={handleTextChange}
                         required
                       />
                     </Form.Group>
-                    <Form.Group controlId='ticket_priority'>
-                      <Form.Label>Ticket Priority</Form.Label>
-                      <Form.Control as='select' value={ticket.priority_id} onChange={handleTextChange}>
-                        {priorityOptions.map((t,i) => {
-                          return <option value={i} >{t}</option>;
+                    <Form.Group controlId='project_priority'>
+                      <Form.Label>Priority</Form.Label>
+                      <Form.Control
+                        as='select'
+                        value={project.priority}
+                        onChange={handleTextChange}
+                      >
+                        {priorityOptions.map((t) => {
+                          return <option value={t}>{project.priority}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
-                    <Form.Group controlId='ticket_type'>
-                      <Form.Label>Ticket Type</Form.Label>
-                      <Form.Control as='select' value={ticket.ticket_type_id} onChange={handleTextChange}>
-                        {typeOptions.map((p,i) => {
-                          return <option value={i} >{p}</option>;
-                        })}
+                    <Form.Group controlId='project_type'>
+                      <Form.Label>Deadline</Form.Label>
+                      <Form.Control as='date'>
+                        <DatePicker
+                          selected={endDate}
+                          onChange={(date) => setStartDate(date)}
+                        />
                       </Form.Control>
                     </Form.Group>
-                    <Form.Group controlId='ticket_status'>
-                      <Form.Label>Ticket Status</Form.Label>
-                      <Form.Control as='select' value={ticket.status_id} onChange={handleTextChange}>
-                        {statusOptions.map((s,i) => {
-                          return <option value={i}>{s}</option>;
+                    <Form.Group controlId='project_status'>
+                      <Form.Label>Status</Form.Label>
+                      <Form.Control
+                        as='select'
+                        value={project.status}
+                        onChange={handleTextChange}
+                      >
+                        {statusOptions.map((s) => {
+                          return <option value={s}>{project.status}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
@@ -139,4 +142,4 @@ function TicketEditForm() {
   );
 }
 
-export default TicketEditForm;
+export default ProjectEditForm;

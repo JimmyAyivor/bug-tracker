@@ -1,7 +1,7 @@
 import React from "react";
 import TicketNewForm from "../../components/Tickets/TicketNewForm";
 
-const New = () => {
+const TicketNew = () => {
   return (
     <>
       <TicketNewForm />
@@ -9,4 +9,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default TicketNew;

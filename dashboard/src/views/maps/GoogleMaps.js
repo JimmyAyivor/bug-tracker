@@ -32,16 +32,16 @@ const GoogleMaps = () => {
 
   return (
     <React.Fragment>
-      <Row>
+      {/* <Row>
         <Col sm={12}>
           <ModuleNotification
             message="For more info please check the components's official documentation"
             link="https://www.npmjs.com/package/react-google-maps"
           />
         </Col>
-      </Row>
+      </Row> */}
       <Row>
-        <Col xl={6}>
+        {/* <Col xl={6}>
           <Card>
             <Card.Header>
               <Card.Title as="h5">Default Marker</Card.Title>
@@ -65,8 +65,8 @@ const GoogleMaps = () => {
               <InfoBox />
             </Card.Body>
           </Card>
-        </Col>
-        <Col xl={6}>
+        </Col> */}
+        <Col xl={12}>
           <Card>
             <Card.Header>
               <Card.Title as="h5">Marker Clusterer</Card.Title>
@@ -76,7 +76,7 @@ const GoogleMaps = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col xl={6}>
+        {/* <Col xl={6}>
           <Card>
             <Card.Header>
               <Card.Title as="h5">Street View Panorma</Card.Title>
@@ -85,7 +85,7 @@ const GoogleMaps = () => {
               <StreetViewPanorma />
             </Card.Body>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
     </React.Fragment>
   );

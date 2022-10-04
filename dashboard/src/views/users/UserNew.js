@@ -1,7 +1,7 @@
 import React from "react";
 import UserNewForm from "../../components/Users/UserNewForm";
 
-const New = () => {
+const UserNew = () => {
   return (
     <>
       <UserNewForm />
@@ -9,4 +9,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default UserNew;

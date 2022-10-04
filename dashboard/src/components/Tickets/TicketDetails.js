@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button, Card, Col } from "react-bootstrap";
 import { getFriendlyDate } from "../../utils/helpers";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 const TicketDetails = () => {
-  
   const [ticket, setTicket] = useState([]);
   let { id } = useParams();
 
-  const navigate = useHistory();
+  const navigate = useNavigate();
   const {
     title,
     description,
@@ -20,24 +19,24 @@ const TicketDetails = () => {
     deadline,
     ticket_type_id,
   } = ticket;
-  
+
   useEffect(() => {
     let isMounted = true;
     axios
-    .get(`${API}/tickets/${id}`)
-    .then((response) => {
-      if (isMounted) setTicket(response.data);
-    })
-    .catch((error) => console.error(error));
+      .get(`${API}/tickets/${id}`)
+      .then((response) => {
+        if (isMounted) setTicket(response.data);
+      })
+      .catch((error) => console.error(error));
     return () => {
       isMounted = false;
     };
   }, [id]);
-  
+
   const handleDelete = () => {
     axios
       .delete(`${API}/tickets/${id}`)
-      .then((response) =>  navigate.push(`/app/dashboard/default`))
+      .then((response) => navigate(`/app/dashboard/default`))
       .catch((error) => console.snack(error));
   };
   return (
@@ -87,7 +86,9 @@ const TicketDetails = () => {
                 </h6>
               </div>
               <div className='col-3 text-right'>
-              <Button variant="outline-danger" disabled>{ticket_type_id}</Button>
+                <Button variant='outline-danger' disabled>
+                  {ticket_type_id}
+                </Button>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -98,7 +99,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-success" disabled>{getFriendlyDate(created_at)}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-success' disabled>
+                    {getFriendlyDate(created_at)}
+                  </Button>
+                </p>
               </div>
             </div>
 
@@ -110,7 +115,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-secondary" disabled>{getFriendlyDate(deadline)}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-secondary' disabled>
+                    {getFriendlyDate(deadline)}
+                  </Button>
+                </p>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -121,7 +130,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-warning" disabled>{priority_id}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-warning' disabled>
+                    {priority_id}
+                  </Button>
+                </p>
               </div>
             </div>
 
@@ -133,7 +146,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-secondary" disabled>{status_id}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-secondary' disabled>
+                    {status_id}
+                  </Button>
+                </p>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -144,7 +161,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-warning" disabled>{user_id}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-warning' disabled>
+                    {user_id}
+                  </Button>
+                </p>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -155,10 +176,13 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'><Button variant="outline-danger" disabled>{user_id}</Button></p>
+                <p className='m-b-10'>
+                  <Button variant='outline-danger' disabled>
+                    {user_id}
+                  </Button>
+                </p>
               </div>
             </div>
-
           </Card.Body>
         </Card>
       </Col>
@@ -168,7 +192,7 @@ const TicketDetails = () => {
             <div className='row d-flex align-items-center'>
               <div>
                 <Link to={`/tickets`}>
-                  <Button variant="secondary" >Back</Button>
+                  <Button variant='secondary'>Back</Button>
                 </Link>
               </div>
               <div>
@@ -177,7 +201,9 @@ const TicketDetails = () => {
                 </Link>
               </div>
               <div>
-                <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                <Button variant='danger' onClick={handleDelete}>
+                  Delete
+                </Button>
               </div>
             </div>
           </Card.Body>

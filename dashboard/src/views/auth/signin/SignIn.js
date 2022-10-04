@@ -8,7 +8,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import FirebaseLogin from './FirebaseLogin';
 
-const Signin1 = () => {
+const Signin = () => {
   return (
     <React.Fragment>
       <Breadcrumb />
@@ -28,13 +28,13 @@ const Signin1 = () => {
               <FirebaseLogin />
               <p className="mb-2 text-muted">
                 Forgot password?{' '}
-                <NavLink to="/auth/reset-password-1" className="f-w-400">
+                <NavLink to="/reset-password" className="f-w-400">
                   Reset
                 </NavLink>
               </p>
               <p className="mb-0 text-muted">
                 Don’t have an account?{' '}
-                <NavLink to="/auth/signup-1" className="f-w-400">
+                <NavLink to="/signup" className="f-w-400">
                   Signup
                 </NavLink>
               </p>
@@ -63,4 +63,4 @@ const Signin1 = () => {
   );
 };
 
-export default Signin1;
+export default Signin;

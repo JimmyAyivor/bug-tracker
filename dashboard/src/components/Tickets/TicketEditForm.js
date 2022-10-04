@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Row, Col, Card, Form, Button } from "react-bootstrap";
 
 import axios from "axios";
@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function TicketEditForm() {
   let { id } = useParams();
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
   const [ticket, setTicket] = useState({
     title: "",
@@ -21,7 +21,7 @@ function TicketEditForm() {
     ticket_type_id: "",
   });
 
-  const priorityOptions = [ "Low", "Medium", "High","Urgent"];
+  const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
   const statusOptions = [
     "New",
@@ -48,7 +48,7 @@ function TicketEditForm() {
       .put(`${API}/tickets/${id}`, ticket)
       .then((response) => {
         setTicket(response.data);
-        navigate.push(`/tickets`);
+        navigate(`/tickets`);
       })
       .catch((error) => console.error(error));
   };
@@ -59,7 +59,7 @@ function TicketEditForm() {
   };
   const handleCancel = (event) => {
     event.preventDefault();
-    navigate.push(`/tickets`);
+    navigate(`/tickets`);
   };
   return (
     <>
@@ -73,7 +73,7 @@ function TicketEditForm() {
               <Card.Body>
                 <Row>
                   <Col md={6}>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Title</Form.Label>
                       <Form.Control
                         type='text'
@@ -85,7 +85,7 @@ function TicketEditForm() {
                         required
                       />
                     </Form.Group>
-                    <Form.Group >
+                    <Form.Group>
                       <Form.Label>Description</Form.Label>
                       <Form.Control
                         as='textarea'
@@ -99,24 +99,36 @@ function TicketEditForm() {
                     </Form.Group>
                     <Form.Group controlId='ticket_priority'>
                       <Form.Label>Ticket Priority</Form.Label>
-                      <Form.Control as='select' value={ticket.priority_id} onChange={handleTextChange}>
-                        {priorityOptions.map((t,i) => {
-                          return <option value={i} >{t}</option>;
+                      <Form.Control
+                        as='select'
+                        value={ticket.priority_id}
+                        onChange={handleTextChange}
+                      >
+                        {priorityOptions.map((t, i) => {
+                          return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId='ticket_type'>
                       <Form.Label>Ticket Type</Form.Label>
-                      <Form.Control as='select' value={ticket.ticket_type_id} onChange={handleTextChange}>
-                        {typeOptions.map((p,i) => {
-                          return <option value={i} >{p}</option>;
+                      <Form.Control
+                        as='select'
+                        value={ticket.ticket_type_id}
+                        onChange={handleTextChange}
+                      >
+                        {typeOptions.map((p, i) => {
+                          return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId='ticket_status'>
                       <Form.Label>Ticket Status</Form.Label>
-                      <Form.Control as='select' value={ticket.status_id} onChange={handleTextChange}>
-                        {statusOptions.map((s,i) => {
+                      <Form.Control
+                        as='select'
+                        value={ticket.status_id}
+                        onChange={handleTextChange}
+                      >
+                        {statusOptions.map((s, i) => {
                           return <option value={i}>{s}</option>;
                         })}
                       </Form.Control>

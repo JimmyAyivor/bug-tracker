@@ -2,7 +2,7 @@ import React from "react";
 import TicketDetails from "../../components/Tickets/TicketDetails";
 
 
-const Show = () => {
+const TicketShow = () => {
   return (
     <>
       <TicketDetails />
@@ -10,4 +10,4 @@ const Show = () => {
   );
 };
 
-export default Show;
+export default TicketShow;

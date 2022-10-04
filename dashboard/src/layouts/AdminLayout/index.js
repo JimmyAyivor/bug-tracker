@@ -9,6 +9,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import useOutsideClick from '../../hooks/useOutsideClick';
 import { ConfigContext } from '../../contexts/ConfigContext';
 import * as actionType from '../../store/actionTypes';
+import { Outlet } from 'react-router-dom';
 
 const AdminLayout = ({ children }) => {
   const windowSize = useWindowSize();
@@ -60,6 +61,7 @@ const AdminLayout = ({ children }) => {
             <div className="pcoded-inner-content">
               <Breadcrumb />
               {children}
+              <Outlet/>
             </div>
           </div>
         </div>
@@ -94,6 +96,8 @@ const AdminLayout = ({ children }) => {
       {common}
       {mainContainer}
       {configBlock && <Configuration />}
+      
+
     </React.Fragment>
   );
 };

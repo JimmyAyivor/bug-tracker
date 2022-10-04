@@ -1,16 +1,17 @@
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Provider } from 'react-redux';
-import { ConfigProvider } from './contexts/ConfigContext';
+import { Provider } from "react-redux";
+import { ConfigProvider } from "./contexts/ConfigContext";
 
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import store from './store';
+import "./index.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import store from "./store";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,7 +19,7 @@ ReactDOM.render(
       <App />
     </ConfigProvider>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 reportWebVitals();

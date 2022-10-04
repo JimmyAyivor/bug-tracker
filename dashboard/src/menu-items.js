@@ -10,7 +10,7 @@ const menuItems = {
           id: 'dashboard',
           title: 'Dashboard',
           type: 'item',
-          url: '/app/dashboard/default',
+          url: '/',
           icon: 'feather icon-home',
         }
       ]
