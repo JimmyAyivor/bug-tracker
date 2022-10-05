@@ -17,9 +17,9 @@ const {
  *         - id
  *         - title
  *         - created_at
- *         - deadline
+ *         - modified_at
  *         - description
- *         - priority
+ *         - role
  *         - status 
  *       properties:
  *         id:
@@ -31,26 +31,26 @@ const {
  *         created_at:
  *            type: timestamp
  *            description: a timestamp of user
- *         deadline:
+ *         modified_at:
  *            type: timestamp
- *            description: a timestamp of user
+ *            description: the timestamp a user was last modified
  *         description:
  *           type: string
  *           description: a description of user
- *         priority:
+ *         role:
  *           type: integer
- *           description: The Auto-generated id of a user
+ *           description: The role of a user
  *         status: 
  *           type: integer
- *           description: The Auto-generated id of a user
+ *           description: The status a user
  *       example:
  *          id: 2
  *          title: user 1
  *          created_at: 2022-09-07T13:42:17.535Z
  *          deadline: 2022-08-09T04:00:00.000Z
- *          description: Description for user 1
- *          priority: LOW
- *          status: NEW
+ *          description: Description for user1
+ *          role: manager 
+ *          status: active
  *
  */
 
