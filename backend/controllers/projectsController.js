@@ -40,10 +40,10 @@ const {
  *           description: a description of project
  *         priority:
  *           type: integer
- *           description: The Auto-generated id of a project
+ *           description: A string representation of a project priority
  *         status: 
- *           type: integer
- *           description: The Auto-generated id of a project
+ *           type: string
+ *           description: A string representation of a project status
  *       example:
  *          id: 2
  *          title: Project 1
