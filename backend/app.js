@@ -13,8 +13,8 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "Bug Tracking API Information",
       contact: {
-        name: "Jimmy Ayivor",
-        url: "https://www.linkedin.com/in/jimmyayivor/",
+        name: "J.Ayivor",
+        link: "https://www.linkedin.com/in/jimmyayivor/",
         email: "jimmyayivor@pursuit.org",
       },
       servers: [
