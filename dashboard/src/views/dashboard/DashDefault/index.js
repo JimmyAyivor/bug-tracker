@@ -75,7 +75,7 @@ const DashDefault = () => {
         <Col sm={12}>
           <ModuleNotification
             message="Please Note: This app is still in development, and some functionalities may not be fully implemented or may be restricted"
-            link="https://www.npmjs.com/package/react-google-maps"
+            link="https://ja-bug-tracker.herokuapp.com/"
           />
         </Col>
       </Row>

@@ -155,7 +155,7 @@ const menuItems = {
               id: 'bug-tracker-api',
               title: 'Bug Tracker Api',
               type: 'item',
-              url: 'http://localhost:3003',
+              url: 'https://ja-bug-tracker.herokuapp.com/',
               target: true,
               external: true
             },
