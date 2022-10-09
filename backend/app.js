@@ -14,7 +14,7 @@ const swaggerOptions = {
       description: "Bug Tracking API Information",
       contact: {
         name: "J.Ayivor",
-        link: "https://www.linkedin.com/in/jimmyayivor/",
+        url: "https://glittering-queijadas-fea732.netlify.app",
         email: "jimmyayivor@pursuit.org",
       },
       servers: [
