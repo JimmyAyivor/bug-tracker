@@ -8,10 +8,10 @@ import { dateFormatter, actionsFormatter, priorityFormatter,statusFormatter } fr
 
 // import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 
-const Tickets = () => {
+const Tickets = ({data}) => {
   const [tickets, ] = useContext(TicketContext);
 
-  const products = [...tickets];
+  const allTickects = [...tickets];
 
   // const { SearchBar } = Search;
 
@@ -90,7 +90,7 @@ const Tickets = () => {
       },
       {
         text: "All",
-        value: products.length,
+        value: data.length,
       },
     ], // A numeric array is also available. the purpose of above example is custom the text
   };
@@ -113,7 +113,7 @@ const Tickets = () => {
                 striped
                 hover
                 keyField='id'
-                data={products}
+                data={data}
                 columns={columns}
                 pagination={paginationFactory(options)}
               />

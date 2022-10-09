@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Button, Card, Col } from "react-bootstrap";
+import { Badge, Button, Card, Col, Row } from "react-bootstrap";
 import { getFriendlyDate } from "../../utils/helpers";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
@@ -40,8 +40,8 @@ const TicketDetails = () => {
       .catch((error) => console.snack(error));
   };
   return (
-    <article className='Show'>
-      <Col xl={6}>
+  <Row>
+      <Col xl={4}>
         <Card>
           <Card.Body>
             <h4 className='mb-4'>{title}</h4>
@@ -73,12 +73,7 @@ const TicketDetails = () => {
                 <p className='m-b-0'>70%</p>
               </div>
             </div>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col xl={6}>
-        <Card>
-          <Card.Body>
+        
             <div className='row d-flex align-items-center'>
               <div className='col-9'>
                 <h6 className='f-w-500 d-flex align-items-center m-b-5'>
@@ -86,9 +81,9 @@ const TicketDetails = () => {
                 </h6>
               </div>
               <div className='col-3 text-right'>
-                <Button variant='outline-danger' disabled>
+                <Badge variant='danger' >
                   {ticket_type_id}
-                </Button>
+                </Badge>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -100,9 +95,9 @@ const TicketDetails = () => {
 
               <div className='col-3 text-right'>
                 <p className='m-b-10'>
-                  <Button variant='outline-success' disabled>
+                  <Badge variant='success'>
                     {getFriendlyDate(created_at)}
-                  </Button>
+                  </Badge>
                 </p>
               </div>
             </div>
@@ -116,9 +111,9 @@ const TicketDetails = () => {
 
               <div className='col-3 text-right'>
                 <p className='m-b-10'>
-                  <Button variant='outline-secondary' disabled>
+                  <Badge variant='secondary' >
                     {getFriendlyDate(deadline)}
-                  </Button>
+                  </Badge>
                 </p>
               </div>
             </div>
@@ -130,11 +125,10 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'>
-                  <Button variant='outline-warning' disabled>
-                    {priority_id}
-                  </Button>
-                </p>
+               
+                <Badge variant='warning'>{priority_id}</Badge>
+                  
+               
               </div>
             </div>
 
@@ -146,11 +140,12 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'>
-                  <Button variant='outline-secondary' disabled>
+                
+                  <Badge variant='secondary' >
                     {status_id}
-                  </Button>
-                </p>
+                  </Badge>
+                 
+             
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -161,11 +156,11 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'>
-                  <Button variant='outline-warning' disabled>
+                
+                  <Badge variant='warning'>
                     {user_id}
-                  </Button>
-                </p>
+                  </Badge>
+                
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -176,19 +171,14 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                <p className='m-b-10'>
-                  <Button variant='outline-danger' disabled>
+           
+                  <Badge variant='danger' >
                     {user_id}
-                  </Button>
-                </p>
+                  </Badge>
+               
               </div>
             </div>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col xl={6}>
-        <Card>
-          <Card.Body>
+          
             <div className='row d-flex align-items-center'>
               <div>
                 <Link to={`/tickets`}>
@@ -209,10 +199,37 @@ const TicketDetails = () => {
           </Card.Body>
         </Card>
       </Col>
-
-      <aside></aside>
-    </article>
+      <Col xl={8}>
+        <Card>
+        <Card.Body>
+            <h4 className='mb-4'>Ticket Comments</h4>
+            <div className='row d-flex align-items-center'>
+         
+            </div>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col xl={6}>
+        <Card>
+          <Card.Body>
+            <h4 className='mb-4'>Ticket History</h4>
+            <div className='row d-flex align-items-center'>
+         
+            </div>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col xl={6}>
+        <Card>
+        <Card.Body>
+            <h4 className='mb-4'>Ticket Attachments</h4>
+            <div className='row d-flex align-items-center'>
+         
+            </div>
+          </Card.Body>
+        </Card>
+      </Col>
+  </Row>
   );
-};
-
+}
 export default TicketDetails;

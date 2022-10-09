@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Ticket = ({ ticket }) => {
-  const { name, title,description,priority,created_by_user_id,closed_by_user_id,created_on,closed_on,ticket_type, id } = ticket;
+  const { title,description,priority,created_by_user_id,closed_by_user_id,created_on,closed_on,ticket_type, id } = ticket;
 
  
   return (

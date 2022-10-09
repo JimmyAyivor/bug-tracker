@@ -26,6 +26,7 @@ import Signin1 from "./views/auth/signin/SignIn";
 import SignUp1 from "./views/auth/signup/SignUp1";
 import { RequireAuth } from "./components/Auth/RequireAuth";
 import FourOFour from "./views/Four0Four";
+import RolesManage from "./views/users/manage/ManageRoles";
 
 const App = () => {
   return (
@@ -61,7 +62,13 @@ const App = () => {
                     <Route path='/users/new' element={<UserNew />} />
                     <Route path='/users/:id' element={<UserShow />} />
                     <Route path='/users/:id/edit' element={<UserEdit />} />
+                    <Route path='/manage/roles' element={<RolesManage />} />
                     </Route>
+                    {/* <Route path='/users' element={<UserIndex />} />
+                    <Route path='/users/new' element={<UserNew />} />
+                    <Route path='/users/:id' element={<UserShow />} />
+                    <Route path='/users/:id/edit' element={<UserEdit />} />
+                    </Route> */}
                     <Route path='*' element={<FourOFour />} />
                 </Routes>
               </BrowserRouter>

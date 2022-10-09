@@ -126,7 +126,7 @@ const menuItems = {
               id: 'manage-roles',
               title: 'Manage Roles',
               type: 'item',
-              url: '#'
+              url: '/manage/roles'
             },
             {
               id: 'assign-tickets',

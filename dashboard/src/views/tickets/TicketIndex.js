@@ -1,10 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { TicketContext } from "../../contexts/TicketContext";
+import { useContext } from "react";
 import Tickets from "../../components/Tickets/Tickets";
 
 const TicketIndex = () => {
+  const tickects = useContext(TicketContext)
+  const allTickects = [...tickects[0]]
+  
   return (<>
-      <Tickets />
+      <Tickets data={allTickects} />
       </>
   );
 };

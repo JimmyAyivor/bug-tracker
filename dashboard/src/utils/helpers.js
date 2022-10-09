@@ -33,10 +33,10 @@ export function getDaysPast(date) {
 }
 
 export function getIconType(daysGoneBy) {
-  if (daysGoneBy > 20) {
+  if (daysGoneBy > 14) {
     return <i className='fa fa-circle text-c-red f-10 m-r-15' />;
   }
-  if (daysGoneBy > 10 && daysGoneBy < 21) {
+  if (daysGoneBy > 7 && daysGoneBy < 15) {
     return <i className='fa fa-circle text-c-yellow f-10 m-r-15' />;
   }
   return <i className='fa fa-circle text-c-green f-10 m-r-15' />;
