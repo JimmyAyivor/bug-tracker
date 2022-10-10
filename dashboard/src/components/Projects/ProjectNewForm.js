@@ -1,12 +1,12 @@
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 function ProjectNewForm() {
-  const now = new Date();
   const navigate = useNavigate();
-
+  const now = new Date();
   const [project, setProject] = useState({
     title: "",
     description: "",
@@ -16,6 +16,7 @@ function ProjectNewForm() {
     created_at: now,
     deadline: now,
   });
+
 
   const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
@@ -31,7 +32,7 @@ function ProjectNewForm() {
   const addProject = () => {
     axios
       .post(`${API}/projects`, project)
-      .then((response) => navigate(`/projects`))
+      .then((response) => navigate.push(`/projects`))
       .catch((error) => console.error(error));
   };
   const handleTextChange = (event) => {
@@ -84,7 +85,6 @@ function ProjectNewForm() {
                         required
                       />
                     </Form.Group>
-
                     <Form.Group controlId='project_priority'>
                       <Form.Label>Project Priority</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
