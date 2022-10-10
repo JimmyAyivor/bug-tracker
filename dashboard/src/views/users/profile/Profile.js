@@ -144,17 +144,6 @@ console.log(user);
                 <hr />
                 <MDBRow>
                   <MDBCol sm='3'>
-                    <MDBCardText>Mobile</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm='9'>
-                    <MDBCardText className='text-muted'>
-                      {user ? user.phoneNumber : ""}
-                    </MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm='3'>
                     <MDBCardText>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm='9'>

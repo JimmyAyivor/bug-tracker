@@ -45,7 +45,7 @@ const ProfileEditForm = () => {
               </div>
               <div class='row mt-3'>
                 <div class='col-md-12'>
-                  <label class='labels'>Mobile Number</label>
+                  <label class='labels'>Phone Number</label>
                   <input
                     type='text'
                     class='form-control'
@@ -62,57 +62,13 @@ const ProfileEditForm = () => {
                     value=''
                   />
                 </div>
-                <div class='col-md-12'>
-                  <label class='labels'>Address Line 2</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    placeholder='enter address line 2'
-                    value=''
-                  />
-                </div>
-                <div class='col-md-12'>
-                  <label class='labels'>Postcode</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    placeholder='enter address line 2'
-                    value=''
-                  />
-                </div>
-                <div class='col-md-12'>
-                  <label class='labels'>State</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    placeholder='enter address line 2'
-                    value=''
-                  />
-                </div>
-                <div class='col-md-12'>
-                  <label class='labels'>Area</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    placeholder='enter address line 2'
-                    value=''
-                  />
-                </div>
+ 
                 <div class='col-md-12'>
                   <label class='labels'>Email ID</label>
                   <input
                     type='text'
                     class='form-control'
                     placeholder='enter email id'
-                    value=''
-                  />
-                </div>
-                <div class='col-md-12'>
-                  <label class='labels'>Education</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    placeholder='education'
                     value=''
                   />
                 </div>
@@ -125,15 +81,6 @@ const ProfileEditForm = () => {
                     class='form-control'
                     placeholder='country'
                     value=''
-                  />
-                </div>
-                <div class='col-md-6'>
-                  <label class='labels'>State/Region</label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    value=''
-                    placeholder='state'
                   />
                 </div>
               </div>

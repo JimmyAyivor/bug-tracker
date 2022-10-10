@@ -5,7 +5,6 @@ import { getFriendlyDate } from "../../utils/helpers";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { TicketContext } from "../../contexts/TicketContext";
-import Tickets from "../Tickets/Tickets";
 import { useContext } from "react";
 const API = process.env.REACT_APP_API_URL;
 const ProjectDetails = () => {
@@ -17,7 +16,6 @@ const ProjectDetails = () => {
   const projectTickects = tickets[0].filter(
     (ticket) => ticket.project_id === project.id
   );
-  console.log(projectTickects);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
