@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useNavigate} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
-const now = new Date();
 function ProjectNewForm() {
+  const navigate = useNavigate()
+  const now = new Date();
+
   const [project, setProject] = useState({
     title: "",
     description: "",
@@ -16,14 +17,6 @@ function ProjectNewForm() {
     deadline: now,
   });
 
-  const navigate = useNavigate();
-  const projectOptions = [
-    "Project 1",
-    "Project 2",
-    "Project 3",
-    "Project 4",
-    "Project 5",
-  ];
 
   const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
@@ -39,7 +32,7 @@ function ProjectNewForm() {
   const addProject = () => {
     axios
       .post(`${API}/projects`, project)
-      .then((response) => navigate.push(`/projects`))
+      .then((response) => navigate(`/projects`))
       .catch((error) => console.error(error));
   };
   const handleTextChange = (event) => {
@@ -49,6 +42,7 @@ function ProjectNewForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addProject();
+
   };
 
   const handleCancel = (event) => {
@@ -91,15 +85,6 @@ function ProjectNewForm() {
                         onChange={handleTextChange}
                         required
                       />
-                    </Form.Group>
-                    <Form.Group controlId='project_id'>
-                      <Form.Label>Select Project</Form.Label>
-                      <Form.Control as='select' onChange={handleTextChange}>
-                        <option>Select...</option>{" "}
-                        {projectOptions.map((t, i) => {
-                          return <option value={i}>{t}</option>;
-                        })}
-                      </Form.Control>
                     </Form.Group>
                     <Form.Group controlId='project_priority'>
                       <Form.Label>Project Priority</Form.Label>
