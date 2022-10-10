@@ -32,7 +32,7 @@ function ProjectNewForm() {
   const addProject = () => {
     axios
       .post(`${API}/projects`, project)
-      .then((response) => navigate.push(`/projects`))
+      .then((response) => navigate(`/projects`))
       .catch((error) => console.error(error));
   };
   const handleTextChange = (event) => {
