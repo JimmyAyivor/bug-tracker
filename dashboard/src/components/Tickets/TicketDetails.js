@@ -36,7 +36,7 @@ const TicketDetails = () => {
   const handleDelete = () => {
     axios
       .delete(`${API}/tickets/${id}`)
-      .then((response) => navigate(`/app/dashboard/default`))
+      .then((response) => navigate(`/tickets`))
       .catch((error) => console.snack(error));
   };
   return (
