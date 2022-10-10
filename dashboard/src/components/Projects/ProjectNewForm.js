@@ -1,11 +1,11 @@
-import { useState, useNavigate} from "react";
+import { useState, useNavigate } from "react";
 import axios from "axios";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 function ProjectNewForm() {
-  const navigate = useNavigate()
   const now = new Date();
+  const navigate = useNavigate();
 
   const [project, setProject] = useState({
     title: "",
@@ -16,7 +16,6 @@ function ProjectNewForm() {
     created_at: now,
     deadline: now,
   });
-
 
   const priorityOptions = ["Low", "Medium", "High", "Urgent"];
   const typeOptions = ["UI", "Maintenance", "New Development"];
@@ -42,7 +41,6 @@ function ProjectNewForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addProject();
-
   };
 
   const handleCancel = (event) => {
@@ -86,6 +84,7 @@ function ProjectNewForm() {
                         required
                       />
                     </Form.Group>
+
                     <Form.Group controlId='project_priority'>
                       <Form.Label>Project Priority</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
