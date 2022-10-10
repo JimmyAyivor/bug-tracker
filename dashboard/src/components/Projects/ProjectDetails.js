@@ -5,7 +5,7 @@ import { getFriendlyDate } from "../../utils/helpers";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { TicketContext } from "../../contexts/TicketContext";
-import { useContext } from "../Tickets/Tickets";
+import Tickets from "../Tickets/Tickets";
 const API = process.env.REACT_APP_API_URL;
 const ProjectDetails = () => {
   const [project, setProject] = useState([]);
