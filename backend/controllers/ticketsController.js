@@ -11,9 +11,9 @@ const {
 /**
  * @swagger
  * components:
- *    schemas:
- *     Ticket:
- *       type: object
+ *   schemas:
+ *    Ticket:
+ *    type: object
  *   required:
  *         - id
  *         - title
