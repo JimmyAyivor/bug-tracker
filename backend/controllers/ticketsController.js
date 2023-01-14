@@ -8,89 +8,89 @@ const {
   deleteTicket
 } = require("../queries/tickets.js");
 
-/**
- * @swagger
- * components:
- *    schemas:
- *     Ticket:
- *       type: object
- *   required:
- *         - id
- *         - title
- *         - created_at
- *         - deadline
- *         - description
- *         - priority
- *         - status 
- *     properties:
- *             id:
- *           type: integer
- *    description: The Auto-generated id of a ticket
- *          title:
- *           type: string
- *    description: title of ticket
- *         description:
- *           type: string
- *           description: a description of ticket
- *         priority_id:
- *           type: integer
- *           description: The Auto-generated id of a ticket
- *         user_id:
- *           type: integer
- *           description: The Auto-generated id of a ticket
- *         status_id: 
- *           type: integer
- *           description: The Auto-generated id of a ticket
- *         ticket_type_id: 
- *           type: integer
- *           description: The Auto-generated id of a ticket
- *         project_id: 
- *           type: integer
- *           description: The Auto-generated id of a ticket
- *         created_at:
- *            type: timestamp
- *            description: a timestamp of ticket
- *         deadline:
- *            type: timestamp
- *            description: a timestamp of ticket
- *       example:
- *             id: 3
- *             title: New Ticket 
- *             description: Some ticket description
- *             priority_id: 2
- *             user_id: 1
- *             status_id: 3
- *             ticket_type_id: 2
- *             project_id: 2
- *             created_at: 2022-09-12T22:39:22.433Z 
- *             updated_at: 2022-09-12T22:39:22.433Z 
- *
- */
+// /**
+//  * @swagger
+//  * components:
+//  *    schemas:
+//  *     Ticket:
+//  *       type: object
+//  *   required:
+//  *         - id
+//  *         - title
+//  *         - created_at
+//  *         - deadline
+//  *         - description
+//  *         - priority
+//  *         - status 
+//  *     properties:
+//  *             id:
+//  *           type: integer
+//  *    description: The Auto-generated id of a ticket
+//  *          title:
+//  *           type: string
+//  *    description: title of ticket
+//  *         description:
+//  *           type: string
+//  *           description: a description of ticket
+//  *         priority_id:
+//  *           type: integer
+//  *           description: The Auto-generated id of a ticket
+//  *         user_id:
+//  *           type: integer
+//  *           description: The Auto-generated id of a ticket
+//  *         status_id: 
+//  *           type: integer
+//  *           description: The Auto-generated id of a ticket
+//  *         ticket_type_id: 
+//  *           type: integer
+//  *           description: The Auto-generated id of a ticket
+//  *         project_id: 
+//  *           type: integer
+//  *           description: The Auto-generated id of a ticket
+//  *         created_at:
+//  *            type: timestamp
+//  *            description: a timestamp of ticket
+//  *         deadline:
+//  *            type: timestamp
+//  *            description: a timestamp of ticket
+//  *       example:
+//  *             id: 3
+//  *             title: New Ticket 
+//  *             description: Some ticket description
+//  *             priority_id: 2
+//  *             user_id: 1
+//  *             status_id: 3
+//  *             ticket_type_id: 2
+//  *             project_id: 2
+//  *             created_at: 2022-09-12T22:39:22.433Z 
+//  *             updated_at: 2022-09-12T22:39:22.433Z 
+//  *
+//  */
 
-/**
- * @swagger
- *  tags:
- *    name: tickets
- *    description: tickets of admins
- */
+// /**
+//  * @swagger
+//  *  tags:
+//  *    name: tickets
+//  *    description: tickets of admins
+//  */
 
 
-/**
- * @swagger
- * /tickets:
- *   get:
- *     summary: Returns all tickets
- *     tags: [tickets]
- *     responses:
- *       200:
- *         description: the list of tickets
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Ticket'
- */
+// /**
+//  * @swagger
+//  * /tickets:
+//  *   get:
+//  *     summary: Returns all tickets
+//  *     tags: [tickets]
+//  *     responses:
+//  *       200:
+//  *         description: the list of tickets
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               type: array
+//  *               items:
+//  *                 $ref: '#/components/schemas/Ticket'
+//  */
 
 
 tickets.get("/", async (req, res) => {

@@ -32,6 +32,7 @@ const swaggerOptions = {
 const ticketsController = require("./controllers/ticketsController.js");
 const projectsController = require("./controllers/projectsController.js");
 const usersController = require("./controllers/usersController.js");
+const rolesController = require("./controllers/rolesController.js");
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 // MIDDLEWARE
@@ -40,6 +41,7 @@ app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use("/users", usersController);
+app.use("/roles", rolesController);
 
 app.use("/projects", projectsController);
 app.use("/tickets", ticketsController);

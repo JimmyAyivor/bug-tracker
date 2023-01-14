@@ -2458,9 +2458,9 @@
     "mimic-fn" "^2.1.0"
 
 "openapi-types@>=7":
-  "integrity" "sha512-GuTo7FyZjOIWVhIhQSWJVaws6A82sWIGyQogxxYBYKZ0NBdyP2CYSIgOwFfSB+UVoPExk/YzFpyYitHS8KVZtA=="
-  "resolved" "https://registry.npmjs.org/openapi-types/-/openapi-types-12.0.2.tgz"
-  "version" "12.0.2"
+  "integrity" "sha512-XpeCy01X6L5EpP+6Hc3jWN7rMZJ+/k1lwki/kTmWzbVhdPie3jd5O2ZtedEx8Yp58icJ0osVldLMrTB/zslQXA=="
+  "resolved" "https://registry.npmjs.org/openapi-types/-/openapi-types-12.1.0.tgz"
+  "version" "12.1.0"
 
 "optionator@^0.8.1":
   "integrity" "sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA=="

@@ -8,7 +8,7 @@ describe("Basic root route", () => {
   describe("/", () => {
     it("is able to make a successful get request to /, that returns a string", async () => {
       const response = await request(tickets).get("/");
-      expect(response.text).toBe("Welcome to your BugTracker Api - brought to you by Jimmy");
+      expect(response.text).toBe("Welcome to the BugTracker API!");
     });
   });
 });
