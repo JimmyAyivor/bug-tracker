@@ -1,5 +1,5 @@
 import React, { Suspense, Fragment, lazy } from 'react';
-import { BrowserRouter,Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import DashDefault from './views/dashboard/DashDefault';
 import Loader from './components/Loader/Loader';
 import AdminLayout from './layouts/AdminLayout';
@@ -10,7 +10,7 @@ export const renderRoutes = (routes = []) => (
   <Suspense fallback={<Loader />}>
    
     <Routes>
-      {routes.map((route, i) => {
+      {routes && routes.map((route, i) => {
         const Layout = route.layout || Fragment;
         const Component = route.component;
 

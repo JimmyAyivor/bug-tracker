@@ -98,7 +98,7 @@ function ProjectNewForm() {
                       <Form.Label>Project Type</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {typeOptions.map((p, i) => {
+                        {typeOptions && typeOptions.map((p, i) => {
                           return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>

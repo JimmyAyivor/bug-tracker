@@ -14,7 +14,7 @@ import PieBasicChart from "../../charts/nvd3-chart/chart/PieBasicChart";
 import LineChart from "../../charts/nvd3-chart/chart/LineChart";
 import BarDiscreteChart from "../../charts/nvd3-chart/chart/BarDiscreteChart";
 import ModuleNotification from '../../../components/Widgets/Statistic/Notification';
-import GoogleMaps from "../../maps/GoogleMaps";
+//import GoogleMaps from "../../maps/GoogleMaps";
 
 const DashDefault = () => {
   const [users] = useContext(UserContext);
@@ -537,7 +537,7 @@ const DashDefault = () => {
         </Col>
         <Col md={6} xl={12}>
           <Card>
-            <Card.Body> <GoogleMaps/></Card.Body>
+            <Card.Body> </Card.Body>
           </Card>
         </Col>
       </Row>

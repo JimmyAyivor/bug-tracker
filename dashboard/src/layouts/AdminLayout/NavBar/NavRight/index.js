@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ListGroup, Dropdown, Media } from "react-bootstrap";
+import { ListGroup, Dropdown, Card } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
@@ -38,7 +38,7 @@ const NavRight = () => {
         id='navbar-right'
       >
         <ListGroup.Item as='li' bsPrefix=' '>
-          <Dropdown alignRight={!rtlLayout}>
+          <Dropdown >
             <Dropdown.Toggle
               as={Link}
               variant='link'
@@ -71,13 +71,13 @@ const NavRight = () => {
                     <p className='m-b-0'>NEW</p>
                   </ListGroup.Item>
                   <ListGroup.Item as='li' bsPrefix=' ' className='notification'>
-                    <Media>
+                    <Card>
                       <img
                         className='img-radius'
                         src={avatar1}
                         alt='Generic placeholder'
                       />
-                      <Media.Body>
+                      <Card.Body>
                         <p>
                           <strong>John Doe</strong>
                           <span className='n-time text-muted'>
@@ -86,20 +86,20 @@ const NavRight = () => {
                           </span>
                         </p>
                         <p>New ticket Added</p>
-                      </Media.Body>
-                    </Media>
+                      </Card.Body>
+                    </Card>
                   </ListGroup.Item>
                   <ListGroup.Item as='li' bsPrefix=' ' className='n-title'>
                     <p className='m-b-0'>EARLIER</p>
                   </ListGroup.Item>
                   <ListGroup.Item as='li' bsPrefix=' ' className='notification'>
-                    <Media>
+                    <Card>
                       <img
                         className='img-radius'
                         src={avatar2}
                         alt='Generic placeholder'
                       />
-                      <Media.Body>
+                      <Card.Body>
                         <p>
                           <strong>Joseph William</strong>
                           <span className='n-time text-muted'>
@@ -108,17 +108,17 @@ const NavRight = () => {
                           </span>
                         </p>
                         <p>Purchase New Theme and make payment</p>
-                      </Media.Body>
-                    </Media>
+                      </Card.Body>
+                    </Card>
                   </ListGroup.Item>
                   <ListGroup.Item as='li' bsPrefix=' ' className='notification'>
-                    <Media>
+                    <Card>
                       <img
                         className='img-radius'
                         src={avatar3}
                         alt='Generic placeholder'
                       />
-                      <Media.Body>
+                      <Card.Body>
                         <p>
                           <strong>Sara Soudein</strong>
                           <span className='n-time text-muted'>
@@ -127,17 +127,17 @@ const NavRight = () => {
                           </span>
                         </p>
                         <p>currently login</p>
-                      </Media.Body>
-                    </Media>
+                      </Card.Body>
+                    </Card>
                   </ListGroup.Item>
                   <ListGroup.Item as='li' bsPrefix=' ' className='notification'>
-                    <Media>
+                    <Card>
                       <img
                         className='img-radius'
                         src={avatar4}
                         alt='Generic placeholder'
                       />
-                      <Media.Body>
+                      <Card.Body>
                         <p>
                           <strong>Suzen</strong>
                           <span className='n-time text-muted'>
@@ -146,8 +146,8 @@ const NavRight = () => {
                           </span>
                         </p>
                         <p>Purchase New Theme and make payment</p>
-                      </Media.Body>
-                    </Media>
+                      </Card.Body>
+                    </Card>
                   </ListGroup.Item>
                 </ListGroup>
               </PerfectScrollbar>
@@ -171,7 +171,7 @@ const NavRight = () => {
           </Dropdown>
         </ListGroup.Item>
         <ListGroup.Item as='li' bsPrefix=' '>
-          <Dropdown alignRight={!rtlLayout} className='drp-user'>
+          <Dropdown  className='drp-user'>
             <Dropdown.Toggle
               as={Link}
               variant='link'
@@ -180,14 +180,14 @@ const NavRight = () => {
             >
               <i className='icon feather icon-settings' />
             </Dropdown.Toggle>
-            <Dropdown.Menu alignRight className='profile-notification'>
+            <Dropdown.Menu  className='profile-notification'>
               <div className='pro-head'>
                 <img
                   src={user ? user.photoURL : avatar1}
                   className='img-radius'
                   alt='User Profile'
                 />
-                <span>{user ? user.displayName : "John Doe"}</span>
+                <span>{user && user.displayName }</span>
                 <Link
                   to='#'
                   className='dud-logout'

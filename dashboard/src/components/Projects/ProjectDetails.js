@@ -1,6 +1,6 @@
 import { useState, useEffect,useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Badge, Button, Card, Col, Row } from "react-bootstrap";
+import {  Button, Card, Col, Row } from "react-bootstrap";
 import { getFriendlyDate } from "../../utils/helpers";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
@@ -106,9 +106,9 @@ const ProjectDetails = () => {
 
                   <div className='col-3 text-right'>
                     <h4 className='m-b-10'>
-                      <Badge variant='success' disabled>
+                      <span className="badge badge-success" disabled>
                         {getFriendlyDate(created_at)}
-                      </Badge>
+                      </span>
                     </h4>
                   </div>
                 </div>
@@ -122,9 +122,9 @@ const ProjectDetails = () => {
 
                   <div className='col-3 text-right'>
                     <h4 className='m-b-10'>
-                      <Badge variant='danger'>
+                      <span className="badge badge-secondary">
                         {getFriendlyDate(deadline)}
-                      </Badge>
+                      </span>
                     </h4>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const ProjectDetails = () => {
 
                   <div className='col-3 text-right'>
                     <h4 className='m-b-10'>
-                      <Badge variant='warning'>{priority}</Badge>
+                      <span className="badge badge-warning">{priority}</span>
                     </h4>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const ProjectDetails = () => {
 
                   <div className='col-3 text-right'>
                     <h4 className='m-b-10'>
-                      <Badge variant='info'>{status}</Badge>
+                      <span className="badge badge-info">{status}</span>
                     </h4>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ const ProjectDetails = () => {
                 <Button variant='secondary' onClick={handleClose}>
                   Cancel
                 </Button>
-                <Button variant='danger' onClick={handleDelete}>
+                <Button className="badge badge-secondary" onClick={handleDelete}>
                   Yes
                 </Button>
               </Modal.Footer>

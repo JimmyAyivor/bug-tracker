@@ -1,5 +1,6 @@
 import React from "react";
 import { UserContext } from "../../../contexts/UserContext";
+import { RoleContext } from "../../../contexts/RoleContext";
 import { useContext } from "react";
 import { Row, Col, Card, Form, Button } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
@@ -8,7 +9,8 @@ import { avatarFormatter, dateFormatter } from "../../../utils/helpers";
 import {  useNavigate } from "react-router-dom";
 const ManageRoles = () => {
   const [users] = useContext(UserContext);
-
+  // const [roles] = useContext(RoleContext);
+  // console.log(roles);
   const members = [...users];
 const navigate = useNavigate()
   const columns = [
@@ -139,17 +141,8 @@ const navigate = useNavigate()
                   >
                     <option>Select...</option>
                     <option selected>Open this select menu</option>
-                    <option value='1'>One</option>
-                    <option value='2'>Two</option>
-                    <option value='3'>Three</option>
-                    <option value='1'>One</option>
-                    <option value='2'>Two</option>
-                    <option value='3'>Three</option>
-                    <option value='3'>Three</option>
-                    <option value='1'>One</option>
-                    <option value='2'>Two</option>
-                    <option value='3'>Three</option>
-                    {/* {priorityOptions.map((t, i) => {
+                   
+                    {/* {roles.map((t, i) => {
                           return <option value={i}>{t}</option>;
                         })} */}
                   </Form.Control>

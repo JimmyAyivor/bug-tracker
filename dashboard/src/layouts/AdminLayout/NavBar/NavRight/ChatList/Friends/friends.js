@@ -1,3 +1,12 @@
+import { doc, setDoc } from "firebase/firestore"; 
+
+
+
+
+
+
+
+
 const friends = [
   {
     id: 1,

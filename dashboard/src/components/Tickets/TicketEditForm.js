@@ -104,7 +104,7 @@ function TicketEditForm() {
                         value={ticket.priority_id}
                         onChange={handleTextChange}
                       >
-                        {priorityOptions.map((t, i) => {
+                        {priorityOptions && priorityOptions.map((t, i) => {
                           return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
@@ -116,7 +116,7 @@ function TicketEditForm() {
                         value={ticket.ticket_type_id}
                         onChange={handleTextChange}
                       >
-                        {typeOptions.map((p, i) => {
+                        {typeOptions && typeOptions.map((p, i) => {
                           return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>
@@ -128,7 +128,7 @@ function TicketEditForm() {
                         value={ticket.status_id}
                         onChange={handleTextChange}
                       >
-                        {statusOptions.map((s, i) => {
+                        {statusOptions && statusOptions.map((s, i) => {
                           return <option value={i}>{s}</option>;
                         })}
                       </Form.Control>

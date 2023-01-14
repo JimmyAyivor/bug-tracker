@@ -25,7 +25,7 @@ const NavLeft = () => {
     <React.Fragment>
       <ListGroup as="ul" bsPrefix=" " className="navbar-nav mr-auto">
         <ListGroup.Item as="li" bsPrefix=" " className={navItemClass.join(' ')}>
-          <Dropdown alignRight={dropdownRightAlign}>
+          <Dropdown >
             <Dropdown.Toggle variant={'link'} id="dropdown-basic">
               Jump to
             </Dropdown.Toggle>

@@ -23,7 +23,7 @@ const Profile =()=>{
   const { user } = useAuth();
   const currentUser = useContext(UserContext)
 console.log(user);
-// console.log(currentUser);
+console.log(currentUser);
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className='py-5'>
@@ -68,7 +68,7 @@ console.log(user);
                 <MDBListGroup flush className='rounded-3'>
                   <MDBListGroupItem className='d-flex justify-content-between align-items-center p-3'>
                     <MDBIcon fas icon='globe fa-lg text-warning' />
-                    <MDBCardText>{currentUser[0][5].website}</MDBCardText>
+                    {/* <MDBCardText>{currentUser[0][5].website}</MDBCardText> */}
                   </MDBListGroupItem>
                   <MDBListGroupItem className='d-flex justify-content-between align-items-center p-3'>
                     <MDBIcon

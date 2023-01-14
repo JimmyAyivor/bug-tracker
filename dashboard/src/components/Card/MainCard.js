@@ -32,7 +32,7 @@ const MainCard = (props) => {
   if (isOption) {
     cardHeaderRight = (
       <div className={'card-header-right ' + optionClass}>
-        <Dropdown alignRight={true} className="btn-group card-option">
+        <Dropdown al className="btn-group card-option">
           <Dropdown.Toggle id="dropdown-basic" className="btn-icon">
             <i className="feather icon-more-horizontal" />
           </Dropdown.Toggle>

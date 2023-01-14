@@ -40,7 +40,7 @@ const TicketDetails = () => {
       .catch((error) => console.snack(error));
   };
   return (
-  <Row>
+    <Row>
       <Col xl={4}>
         <Card>
           <Card.Body>
@@ -73,7 +73,7 @@ const TicketDetails = () => {
                 <p className='m-b-0'>70%</p>
               </div>
             </div>
-        
+
             <div className='row d-flex align-items-center'>
               <div className='col-9'>
                 <h6 className='f-w-500 d-flex align-items-center m-b-5'>
@@ -81,9 +81,7 @@ const TicketDetails = () => {
                 </h6>
               </div>
               <div className='col-3 text-right'>
-                <Badge variant='danger' >
-                  {ticket_type_id}
-                </Badge>
+                <Badge variant='danger'>{ticket_type_id}</Badge>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -95,9 +93,7 @@ const TicketDetails = () => {
 
               <div className='col-3 text-right'>
                 <p className='m-b-10'>
-                  <Badge variant='success'>
-                    {getFriendlyDate(created_at)}
-                  </Badge>
+                  <Badge variant='success'>{getFriendlyDate(created_at)}</Badge>
                 </p>
               </div>
             </div>
@@ -111,9 +107,7 @@ const TicketDetails = () => {
 
               <div className='col-3 text-right'>
                 <p className='m-b-10'>
-                  <Badge variant='secondary' >
-                    {getFriendlyDate(deadline)}
-                  </Badge>
+                  <Badge variant='secondary'>{getFriendlyDate(deadline)}</Badge>
                 </p>
               </div>
             </div>
@@ -125,10 +119,7 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-               
                 <Badge variant='warning'>{priority_id}</Badge>
-                  
-               
               </div>
             </div>
 
@@ -140,12 +131,7 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                
-                  <Badge variant='secondary' >
-                    {status_id}
-                  </Badge>
-                 
-             
+                <Badge variant='secondary'>{status_id}</Badge>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -156,11 +142,7 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-                
-                  <Badge variant='warning'>
-                    {user_id}
-                  </Badge>
-                
+                <Badge variant='warning'>{user_id}</Badge>
               </div>
             </div>
             <div className='row d-flex align-items-center'>
@@ -171,19 +153,15 @@ const TicketDetails = () => {
               </div>
 
               <div className='col-3 text-right'>
-           
-                  <Badge variant='danger' >
-                    {user_id}
-                  </Badge>
-               
+                <Badge variant='danger'>{user_id}</Badge>
               </div>
             </div>
-          
+
             <div className='row d-flex align-items-center'>
               <div>
-                <Link to={`/tickets`}>
-                  <Button variant='secondary'>Back</Button>
-                </Link>
+                <Button onClick={() => navigate(-1)} variant='secondary'>
+                  Back
+                </Button>
               </div>
               <div>
                 <Link to={`/tickets/${id}/edit`}>
@@ -201,11 +179,9 @@ const TicketDetails = () => {
       </Col>
       <Col xl={8}>
         <Card>
-        <Card.Body>
+          <Card.Body>
             <h4 className='mb-4'>Ticket Comments</h4>
-            <div className='row d-flex align-items-center'>
-         
-            </div>
+            <div className='row d-flex align-items-center'></div>
           </Card.Body>
         </Card>
       </Col>
@@ -213,23 +189,19 @@ const TicketDetails = () => {
         <Card>
           <Card.Body>
             <h4 className='mb-4'>Ticket History</h4>
-            <div className='row d-flex align-items-center'>
-         
-            </div>
+            <div className='row d-flex align-items-center'></div>
           </Card.Body>
         </Card>
       </Col>
       <Col xl={6}>
         <Card>
-        <Card.Body>
+          <Card.Body>
             <h4 className='mb-4'>Ticket Attachments</h4>
-            <div className='row d-flex align-items-center'>
-         
-            </div>
+            <div className='row d-flex align-items-center'></div>
           </Card.Body>
         </Card>
       </Col>
-  </Row>
+    </Row>
   );
-}
+};
 export default TicketDetails;

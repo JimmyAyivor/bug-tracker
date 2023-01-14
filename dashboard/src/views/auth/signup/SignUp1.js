@@ -2,10 +2,17 @@ import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 
+import FirebaseRegister from './FirebaseRegister';
 
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
 
 const SignUp1 = () => {
+
+
+
+
+
+
   return (
     <React.Fragment>
       <Breadcrumb />
@@ -24,23 +31,7 @@ const SignUp1 = () => {
                   <div className="mb-4">
                     <i className="feather icon-user-plus auth-icon" />
                   </div>
-                  <h3 className="mb-4">Sign up</h3>
-                  <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder="Username" />
-                  </div>
-                  <div className="input-group mb-3">
-                    <input type="email" className="form-control" placeholder="Email address" />
-                  </div>
-                  <div className="input-group mb-4">
-                    <input type="password" className="form-control" placeholder="Password" />
-                  </div>
-                  <div className="custom-control custom-checkbox  text-left mb-4 mt-2">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" defaultChecked={false} />
-                    <label className="custom-control-label" htmlFor="customCheck1">
-                      Send me the <Link to="#"> Newsletter</Link> weekly.
-                    </label>
-                  </div>
-                  <button className="btn btn-primary mb-4">Sign up</button>
+                  <FirebaseRegister/>
                   <p className="mb-2">
                     Already have an account?{' '}
                     <NavLink to="/signin" className="f-w-400">

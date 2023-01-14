@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const images = require.context('../../../../../../../assets/images/user', true);
@@ -25,19 +25,19 @@ const Friend = ({ data, activeId, clicked }) => {
 
   return (
     <React.Fragment>
-      <Media className={activeId === data.id ? 'userlist-box active' : 'userlist-box'} onClick={clicked}>
+      <Card className={activeId === data.id ? 'userlist-box active' : 'userlist-box'} onClick={clicked}>
         <Link to="#" className="media-left">
           {' '}
           <img className="media-object img-radius" src={photo.default} alt={data.name} />
           {newFriend}
         </Link>
-        <Media.Body>
+        <Card.Body>
           <h6 className="chat-header">
             {data.name}
             {time}
           </h6>
-        </Media.Body>
-      </Media>
+        </Card.Body>
+      </Card>
     </React.Fragment>
   );
 };

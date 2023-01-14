@@ -19,7 +19,7 @@ const Tickets = () => {
 
   return (
     <>
-      {tickets.map((ticket) => {
+      {tickets && tickets.map((ticket) => {
         return <Ticket key={ticket.id} id ={ticket.id} ticket={ticket} />;
       })}
     </>

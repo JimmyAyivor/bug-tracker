@@ -5,13 +5,14 @@ import { FirebaseProvider } from "./contexts/FirebaseContext";
 import { UserProvider } from "./contexts/UserContext";
 import { TicketProvider } from "./contexts/TicketContext";
 import { ProjectProvider } from "./contexts/ProjectContext";
+import { RoleProvider } from "./contexts/RoleContext";
 import DashDefault from "./views/dashboard/DashDefault";
 import TicketShow from "./views/tickets/TicketShow";
 import TicketNew from "./views/tickets/TicketNew";
 import TicketIndex from "./views/tickets/TicketIndex";
 import TicketEdit from "./views/tickets/TicketEdit";
 import AdminLayout from "./layouts/AdminLayout";
-import ProjectIndex from "./views/projects/Projectndex";
+import ProjectIndex from "./views/projects/ProjectIndex";
 import ProjectNew from "./views/projects/ProjectNew";
 import ProjectShow from "./views/projects/ProjectShow";
 import ProjectEdit from "./views/projects/ProjectEdit";
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <>
       <FirebaseProvider>
+      <RoleProvider>
         <TicketProvider>
           <ProjectProvider>
             <UserProvider>
@@ -75,6 +77,7 @@ const App = () => {
             </UserProvider>
           </ProjectProvider>
         </TicketProvider>
+        </RoleProvider>
       </FirebaseProvider>
     </>
   );

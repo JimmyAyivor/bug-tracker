@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media, FormControl, Button, InputGroup } from 'react-bootstrap';
+import { Card, FormControl, Button, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
@@ -13,13 +13,13 @@ const Chat = ({ user, chatOpen, listOpen, closed }) => {
   }
 
   let message = (
-    <Media className="chat-messages text-center">
-      <Media.Body className="chat-menu-content">
+    <Card className="chat-messages text-center">
+      <Card.Body className="chat-menu-content">
         <div className="">
           <p className="chat-cont">CHAT NOT FOUND</p>
         </div>
-      </Media.Body>
-    </Media>
+      </Card.Body>
+    </Card>
   );
 
   chatMsg.filter((chats) => {
@@ -48,7 +48,7 @@ const Chat = ({ user, chatOpen, listOpen, closed }) => {
           </div>
         </div>
         <div className="h-list-footer">
-          <InputGroup>
+          {/* <InputGroup>
             <InputGroup.Prepend>
               <Button variant="success" className="btn-attach">
                 <i className="feather icon-paperclip" />
@@ -58,7 +58,7 @@ const Chat = ({ user, chatOpen, listOpen, closed }) => {
             <Button type="submit" className="input-group-append btn-send">
               <i className="feather icon-message-circle" />
             </Button>
-          </InputGroup>
+          </InputGroup> */}
         </div>
       </div>
     </React.Fragment>

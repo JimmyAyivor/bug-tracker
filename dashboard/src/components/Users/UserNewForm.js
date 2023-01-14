@@ -97,7 +97,7 @@ function UserNewForm() {
                       <Form.Label>Select Project</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>{" "}
-                        {projectOptions.map((t, i) => {
+                        {projectOptions && projectOptions.map((t, i) => {
                           return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
@@ -106,7 +106,7 @@ function UserNewForm() {
                       <Form.Label>Ticket Priority</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {priorityOptions.map((t, i) => {
+                        {priorityOptions && priorityOptions.map((t, i) => {
                           return <option value={i}>{t}</option>;
                         })}
                       </Form.Control>
@@ -115,7 +115,7 @@ function UserNewForm() {
                       <Form.Label>Ticket Type</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {typeOptions.map((p, i) => {
+                        {typeOptions && typeOptions.map((p, i) => {
                           return <option value={i}>{p}</option>;
                         })}
                       </Form.Control>

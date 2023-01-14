@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Media } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const images = require.context('../../../../../../../../assets/images/user', true);
 
@@ -23,15 +23,15 @@ const Messages = ({ message, photo, name }) => {
 
   return (
     <React.Fragment>
-      <Media className="media chat-messages">
+      <Card className="media chat-messages">
         {image}
-        <Media.Body className={msgClass.join(' ')}>
+        <Card.Body className={msgClass.join(' ')}>
           <div className="">
             <p className="chat-cont">{message.msg}</p>
           </div>
           <p className="chat-time">{message.time}</p>
-        </Media.Body>
-      </Media>
+        </Card.Body>
+      </Card>
     </React.Fragment>
   );
 };

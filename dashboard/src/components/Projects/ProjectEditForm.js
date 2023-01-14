@@ -15,8 +15,8 @@ function ProjectEditForm() {
   const [project, setProject] = useState({
     title: "",
     description: "",
-    priority_id: "",
-    status_id: "",
+    priority_id: 4,
+    status_id: 6,
     created_at: "",
     deadline: "",
   });
@@ -98,9 +98,11 @@ function ProjectEditForm() {
                         value={project.priority}
                         onChange={handleTextChange}
                       >
-                        {priorityOptions.map((t) => {
-                          return <option value={t}>{project.priority}</option>;
-                        })}
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">High</option>
+                        <option value="4">Urgent</option>
+
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId='project_type'>
@@ -116,10 +118,9 @@ function ProjectEditForm() {
                       <Form.Label>Status</Form.Label>
                       <Form.Control
                         as='select'
-                        value={project.status}
                         onChange={handleTextChange}
                       >
-                        {statusOptions.map((s) => {
+                        {statusOptions && statusOptions.map((s) => {
                           return <option value={s}>{project.status}</option>;
                         })}
                       </Form.Control>

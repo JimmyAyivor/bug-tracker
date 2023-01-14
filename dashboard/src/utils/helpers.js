@@ -1,4 +1,4 @@
-import { Badge, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function getFriendlyDate(date) {
@@ -92,37 +92,37 @@ export function actionsFormatter(cell, row) {
 
 export function statusFormatter(cell, row) {
   if (cell === "OPEN") {
-    return <Badge variant='primary'>{cell}</Badge>;
+    return <span className="badge badge-primary">{cell}</span>;
   }
   if (cell === "DEVELOPMENT") {
-    return <Badge variant='info'>{cell}</Badge>;
+    return <span className="badge badge-secondary">{cell}</span>;
   }
   if (cell === "TESTING") {
-    return <Badge variant='warning'>{cell}</Badge>;
+    return <span className="badge badge-success">{cell}</span>;
   }
   if (cell === "RESOLVED") {
-    return <Badge variant='info'>{cell}</Badge>;
+    return <span className="badge badge-danger">{cell}</span>;
   }
   if (cell === "CLOSED") {
-    return <Badge variant='danger'>{cell}</Badge>;
+    return <span className="badge badge-warning">{cell}</span>;
   }
   if (cell === "ARCHIVED") {
-    return <Badge variant='secondary'>{cell}</Badge>;
+    return <span className="badge badge-info">{cell}</span>;
   }
-  return <Badge variant='success'>{cell}</Badge>;
+  return <span className="badge badge-dark">{cell}</span>;
 }
 
 export function priorityFormatter(cell, row) {
   if (cell === "URGENT") {
-    return <Badge variant='danger'>{cell}</Badge>;
+    return <span className="badge badge-warning">{cell}</span>;
   }
   if (cell === "MEDIUM") {
-    return <Badge variant='warning'>{cell}</Badge>;
+    return <span className="badge badge-primary">{cell}</span>;
   }
   if (cell === "HIGH") {
-    return <Badge variant='info'>{cell}</Badge>;
+    return <span className="badge badge-success">{cell}</span>;
   }
-  return <Badge variant='secondary'>{cell}</Badge>;
+  return <span className="badge badge-secondary">{cell}</span>;
 }
 
 export function dateFormatter(cell, row) {

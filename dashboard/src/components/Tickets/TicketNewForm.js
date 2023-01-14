@@ -98,7 +98,7 @@ function TicketNewForm() {
                       <Form.Label>Select Project</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>{" "}
-                        {projects[0].map(({ id, title }) => {
+                        {projects && projects[0].map(({ id, title }) => {
                           console.log(projects);
                           return <option value={id}>{title}</option>;
                         })}
@@ -108,7 +108,7 @@ function TicketNewForm() {
                       <Form.Label>Ticket Priority</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {priorityOptions.map((priority, index) => {
+                        {priorityOptions && priorityOptions.map((priority, index) => {
                           return <option value={index}>{priority}</option>;
                         })}
                       </Form.Control>
@@ -117,7 +117,7 @@ function TicketNewForm() {
                       <Form.Label>Ticket Type</Form.Label>
                       <Form.Control as='select' onChange={handleTextChange}>
                         <option>Select...</option>
-                        {typeOptions.map((type, index) => {
+                        {typeOptions && typeOptions.map((type, index) => {
                           return <option value={index}>{type}</option>;
                         })}
                       </Form.Control>
