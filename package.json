@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joinpursuit/bookmarks-mono-repo.git"
+    "url": "git+https://github.com:JimmyAyivor/bug-tracker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/JimmyAyivor/bug-tracker"
   },
   "homepage": ""
 }
